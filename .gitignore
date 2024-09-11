@@ -2,3 +2,4 @@
 node_modules/.bin/mime.cmd
 /node_modules
 *.json
+/backend/node_modules
