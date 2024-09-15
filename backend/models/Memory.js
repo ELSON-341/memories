@@ -13,7 +13,7 @@ const commentSchema = new Schema({
     }
 })
 
-const memory = new Schema({
+const MemorySchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -23,7 +23,7 @@ const memory = new Schema({
         required: true
     },
     description: {
-        type: string,
+        type: String,
         required:true
     },
     favorite: {
@@ -33,3 +33,5 @@ const memory = new Schema({
 },
 {timestamps: true}
 )
+
+module.exports = mongoose.model("Memory", MemorySchema)
