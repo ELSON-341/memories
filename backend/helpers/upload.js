@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const filter = (req, file, cd) => {
+const filterFilter = (req, file, cd) => {
     if(file.mimetype === "image/jpej" || file.mimetype === "image/png") {
         cd(null, true)
     } else {
@@ -20,7 +20,7 @@ const filter = (req, file, cd) => {
 
 const upload = multer({
     storage,
-    fileFilter
+    filterFilter
 })
 
 module.exports = upload
