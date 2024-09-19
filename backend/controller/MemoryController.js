@@ -16,7 +16,7 @@ const createMemory = async(req, res) => {
             description
         })
 
-        await newMymory.seve()
+        await newMymory.save()
 
         res.json({msg: "Memória criada com sucesso!"})
     } catch (error) {
