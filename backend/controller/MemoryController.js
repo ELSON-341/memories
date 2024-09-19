@@ -28,3 +28,19 @@ const createMemory = async(req, res) => {
 module.exports = {
     createMemory,
 }
+
+const getMemories = async(req, res) => {
+    try {
+        const memories = await Memory.find()
+
+        res.json(memories)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send("Ocorreu um erro!")
+    }
+}
+
+module.exports = {
+    createMemory,
+    getMemories
+}
