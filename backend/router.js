@@ -2,7 +2,7 @@ const express = require("express")
 const upload = require("./helpers/upload")
 const router = express.Router()
 
-const {createMemory, getMemories, getMemory} = require("./controller/MemoryController")
+const {createMemory, getMemories, getMemory, deleteMemory} = require("./controller/MemoryController")
 
 router.post("/", upload.single("image"), (req, res, next) => {
     const image = req.file
@@ -17,5 +17,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
 router.get("/", (req, res) => getMemories(req, res))
 
 router.get("/:id", (req, res) => getMemory(req, res))
+
+router.delete("/:id", (req, res) => deleteMemory(req, res))
 
 module.exports = router

@@ -67,11 +67,11 @@ const deleteMemory = async(req, res) => {
     try {
         const memory = await Memory.findByIdAndDelete(req.params.id)
 
-        removeIdImage(memory)
-
         if(!memory) {
             return res.status(404).json({msg: "Memória não encontrada!"})
         }
+
+        removeIdImage(memory)
 
         res.json({msg: "Memória excluída"})
     } catch (error) {
