@@ -1,11 +1,9 @@
 POST http://localhost:3000/memories/
-Content-Type: application/json, multipart/form-data
-boundary=boudary
+Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
-content-Disti
+Content-Disposition: form-data; name="image"; filename="esn.png"
+Content-Type: image/jpeg
 
-{
-    "title": "test 2",
-    "description": "descrição"
-}
+< ../esn.png
+--boundary--
