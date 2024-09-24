@@ -1,9 +1,10 @@
+const { log } = require("console")
 const Memory = require("../models/Memory")
 
 const fs = require("fs")
 
 const removeIdImage = (memory) => {
-    fs.unlink(memory.src, (err) => {
+    fs.unlink(`public/${memory.src}`, (err) => {
         if(err) {
             console.log(err)
         } else {
@@ -80,6 +81,19 @@ const deleteMemory = async(req, res) => {
     }
 }
 
+const updateMemory = async(req, res) => {
+    try {
+        const {title, description} = req.body
+
+        let src = null
+
+        if(req.file) {
+            src = `images${req.file.filename}`
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 module.exports = {
     createMemory,
     getMemories,

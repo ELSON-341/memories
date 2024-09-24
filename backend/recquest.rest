@@ -2,8 +2,21 @@ POST http://localhost:3000/memories/
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
-Content-Disposition: form-data; name="image"; filename="esn.png"
+Content-Disposition: form-data; name="image"; filename="frase.jpg"
 Content-Type: image/jpeg
 
-< ../esn.png
+< ../frase.jpg
+--boundary
+Content-Disposition: form-data; name="title"
+
+testo dfdsfd
+--boundary
+Content-Disposition: form-data; name="description"
+
+descrição 2 de teste
 --boundary--
+
+###
+GET http://localhost:3000/memories/
+###
+DELETE  http://localhost:3000/memories/66f2f6e671467d43dcd06b21
