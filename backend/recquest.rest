@@ -9,14 +9,33 @@ Content-Type: image/jpeg
 --boundary
 Content-Disposition: form-data; name="title"
 
-testo dfdsfd
+testing
 --boundary
 Content-Disposition: form-data; name="description"
 
-descrição 2 de teste
+descrição 25
 --boundary--
 
 ###
 GET http://localhost:3000/memories/
 ###
 DELETE  http://localhost:3000/memories/66f2f6e671467d43dcd06b21
+
+###
+PATCH http://localhost:3000/memories/66f445bad639ca76683b3850
+Content-Type: multipart/form-data boundary=boundary
+
+--boundary
+Content-Dispositon: from-data; name="title"
+
+Atualizado titulo
+--boundary
+Content-Disposition: form-data; name="description"
+
+Atualizado descrição
+--boundary--
+Content-Disposition: form-data; name="image"; filename="esn.png"
+Content-Type: image/jpeg
+
+< ../esn.png
+--boundary

@@ -90,13 +90,36 @@ const updateMemory = async(req, res) => {
         if(req.file) {
             src = `images${req.file.filename}`
         }
+
+        const memory = await Memory.findById(req.params.id)
+
+        if(!memory) {
+            return res.status(404).json({msg: "Memoria não encontrada!"})
+        }
+
+        if(src) {
+            removeIdImage(memory)
+        }
+
+        const updateData = {}
+
+        if(title) updateData.title = title
+        if(description) updateData.description = description
+        if(src) updateData.src = src
+
+        const updateMemory = await Memory.findByIdAndUpdate(req.params.id, updateData, {new: true})
+
+        res.json({updateData, msg: "Memória atualizada com sucesso!"})
+
     } catch (error) {
         console.log(error)
     }
 }
+
 module.exports = {
     createMemory,
     getMemories,
     getMemory,
-    deleteMemory
+    deleteMemory,
+    updateMemory
 }
