@@ -102,14 +102,14 @@ const updateMemory = async(req, res) => {
         }
 
         const updateData = {}
-
+        
         if(title) updateData.title = title
         if(description) updateData.description = description
         if(src) updateData.src = src
 
         const updateMemory = await Memory.findByIdAndUpdate(req.params.id, updateData, {new: true})
 
-        res.json({updateData, msg: "Memória atualizada com sucesso!"})
+        res.json({updateMemory, msg: "Memória atualizada com sucesso!"})
 
     } catch (error) {
         console.log(error)

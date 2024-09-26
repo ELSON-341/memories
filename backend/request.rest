@@ -23,19 +23,19 @@ DELETE  http://localhost:3000/memories/66f2f6e671467d43dcd06b21
 
 ###
 PATCH http://localhost:3000/memories/66f445bad639ca76683b3850
-Content-Type: multipart/form-data boundary=boundary
+Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
-Content-Dispositon: from-data; name="title"
+Content-Disposition: form-data; name="title"
 
 Atualizado titulo
 --boundary
 Content-Disposition: form-data; name="description"
 
 Atualizado descrição
---boundary--
+--boundary
 Content-Disposition: form-data; name="image"; filename="esn.png"
-Content-Type: image/jpeg
+Content-Type: image/png
 
 < ../esn.png
---boundary
+--boundary--
