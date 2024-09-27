@@ -1,4 +1,3 @@
-const { log } = require("console")
 const Memory = require("../models/Memory")
 
 const fs = require("fs")
@@ -116,10 +115,30 @@ const updateMemory = async(req, res) => {
     }
 }
 
+const toggleFavorite = async(req, res) => {
+    try {
+        const memory = await Memory.findById(req.params.id)
+
+        if(!memory) {
+            return res.status(404).json({msg: "Memória não encontrada!"})
+        }
+
+        memory.favorite = !memory.favorite
+
+        await memory.save()
+
+        res.json({msg: "Adicionada aos favoritos", memory})
+    } catch (error) {
+        console.log(error)
+        res.status(500).send("Ocorreu um erro!")
+    }
+}
+
 module.exports = {
     createMemory,
     getMemories,
     getMemory,
     deleteMemory,
-    updateMemory
+    updateMemory,
+    toggleFavorite
 }
