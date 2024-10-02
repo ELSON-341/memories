@@ -1,6 +1,8 @@
-import axios from "axios"
+import axios from "../axios/axios-config"
 
 import { useState } from "react"
+
+import {toast} from 'react-toastify'
 
 import "./AddMemory.css"
 
@@ -10,7 +12,24 @@ const AddMemory = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(inputs, image)
+
+    const formData = new FormData()
+    formData.append("image", image)
+    formData.append("title", inputs.title)
+    formData.append("description", inputs.description)
+
+    try {
+      const response = await axios.post("/memories", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      toast.success(response.data.msg)
+    } catch (error) {
+      console.log(`erro${error}`);
+      toast.error(error.response.data.msg)
+    }
+
   }
 
   const handleChange = (event) => {
