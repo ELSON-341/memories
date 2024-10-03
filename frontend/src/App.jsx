@@ -22,7 +22,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='dark'
+        theme='light'
       />
       <Navbar />
       <div className="container">
