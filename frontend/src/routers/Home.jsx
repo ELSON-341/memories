@@ -24,6 +24,7 @@ const Home = () => {
     getMemories()
   }, [])
 
+  if(!memories) return <p>Carregando...</p>
   return (
     <div className="home">
       <h2>Confira as últimas memórias</h2>
