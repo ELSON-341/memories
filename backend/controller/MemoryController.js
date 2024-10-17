@@ -7,7 +7,7 @@ const removeIdImage = (memory) => {
         if(err) {
             console.log(err)
         } else {
-            console.log("Imgem exclída do servidor!");
+            console.log("Imgem excluída do servidor!");
         }
     })
 }
@@ -19,7 +19,7 @@ const createMemory = async(req, res) => {
         const src = `images/${req.file.filename}`
 
         if(!title || !description) {
-            return res.json({msg: "Por favor, preenha todos campos."})
+            return res.json({msg: "Por favor, preencha todos campos."})
         }
 
         const newMymory = new Memory({
@@ -59,7 +59,7 @@ const getMemory = async(req, res) => {
         res.json(memory)
     } catch (error) {
         console.log(error)
-        res.status(500).send("Ocorreu um erro!")
+        res.status(500).send("Ocorrou um erro!")
     }
 }
 
@@ -139,7 +139,7 @@ const addComment = async(req, res) => {
         const {name, text} = req.body
 
         if(!name || !text) {
-            return res.status(400).json({msg: "Por favor, preenha os campos."})
+            return res.status(400).json({msg: "Por favor, preencha os campos."})
         }
 
         const comment = {name, text}
